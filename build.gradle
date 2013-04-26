@@ -1,0 +1,48 @@
+description = 'Spring Integration MQTT Adapter'
+
+apply plugin: 'java'
+apply from: "${rootProject.projectDir}/publish-maven.gradle"
+apply plugin: 'idea'
+
+group = 'org.springframework.integration'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+
+    maven { url 'http://repo.springsource.org/libs-milestone' }
+    maven { url 'http://repo.springsource.org/plugins-release' }
+}
+
+sourceCompatibility = 1.6
+targetCompatibility = 1.6
+
+ext {
+    slf4jVersion = '1.6.6'
+    commonsLangVersion = '2.6'
+    commonsBeanUtilsVersion = '1.8.3'
+    easymockVersion = '2.3'
+    junitVersion = '4.10'
+    log4jVersion = '1.2.12'
+    mockitoVersion = '1.9.0'
+    springVersion = '3.2.1.RELEASE'
+    springIntegrationVersion = '2.2.1.RELEASE'
+    pahoMqttClientVersion = '3.1.0'
+    idPrefix = 'mqtt'
+}
+
+dependencies {
+    compile "org.slf4j:slf4j-log4j12:$slf4jVersion"
+    compile "commons-lang:commons-lang:$commonsLangVersion"
+    compile "commons-beanutils:commons-beanutils:$commonsBeanUtilsVersion"
+    compile "org.springframework.integration:spring-integration-core:$springIntegrationVersion"
+    compile "org.springframework.integration:spring-integration-core:$springIntegrationVersion"
+    compile "org.eclipse.paho.client:mqtt:$pahoMqttClientVersion"
+
+    testCompile "org.springframework.integration:spring-integration-test:$springIntegrationVersion"
+    testCompile "junit:junit-dep:$junitVersion"
+    testCompile "log4j:log4j:$log4jVersion"
+    testCompile "org.mockito:mockito-all:$mockitoVersion"
+    testCompile "org.springframework:spring-test:$springVersion"
+    testCompile "org.easymock:easymockclassextension:$easymockVersion"
+}
