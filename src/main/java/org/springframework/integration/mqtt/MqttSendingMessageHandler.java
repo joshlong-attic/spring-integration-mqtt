@@ -32,6 +32,11 @@ public class MqttSendingMessageHandler extends AbstractMessageHandler {
     private boolean messagesRetained;
     private QualityOfService qualityOfService = QualityOfService.AT_MOST_ONCE;
 
+    public MqttSendingMessageHandler(IMqttClient client, String topic ){
+        setClient( client);
+        setTopic(topic);
+    }
+
     @Override
     protected void onInit() throws Exception {
         Assert.notNull(this.client, String.format("you must specify a valid %s instance! ", MqttClient.class.getName()));
