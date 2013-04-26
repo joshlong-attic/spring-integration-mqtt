@@ -5,12 +5,18 @@ The Spring Integration MQTT allows you to receive/send [MQTT](http://mqtt.org/) 
 
 # Components
 
+
 * Outbound Channel Adapter
 * Outbound Gateway
 * Inbound Channel Adapter
 * Inbound Gateway
 
 # Requirements
+
+You'll need to install the Paho client library jar in your local maven repository.
+
+	mkdir -p ~/.m2/repository #optional if you already have Maven installed 
+	mvn install:install-file -Dfile=build/dist/org.eclipse.paho.client.mqttv3.jar -DgroupId=org.eclipse.paho.client -DartifactId=mqtt -Dversion=3.1.0 -Dpackaging=jar
 
 You'll need a broker to connect with, or you can install your own. 
 
